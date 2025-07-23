@@ -40,14 +40,14 @@ def extract_books_from_category(category_name, category_url):
             img_src = book.select_one('img')['src'] 
             img_url = urljoin(next_page, img_src)
 
-
+            #Grava as informações dentro de cada coluna
             books.append({
                 "title": title,
                 "price": price, 
                 "availability": availability,
                 "rating": rating,
                 "url": full_url,
-                "image_url": img_url, #e adicionei essa coluna nova
+                "image_url": img_url, 
                 "category": category_name
             })
 
