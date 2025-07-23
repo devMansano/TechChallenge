@@ -37,13 +37,17 @@ def extract_books_from_category(category_name, category_url):
             rating = book.p['class'][1]
             partial_url = book.h3.a['href']
             full_url = urljoin(next_page, partial_url)
+            img_src = book.select_one('img')['src'] 
+            img_url = urljoin(next_page, img_src)
+
 
             books.append({
                 "title": title,
-                "price": price,
+                "price": price, 
                 "availability": availability,
                 "rating": rating,
                 "url": full_url,
+                "image_url": img_url, #e adicionei essa coluna nova
                 "category": category_name
             })
 
