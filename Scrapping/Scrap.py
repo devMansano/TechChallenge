@@ -19,14 +19,13 @@ def get_all_categories():
     return categories
 
 
-def extract_books_from_category(category_name, category_url):
+def extract_books_from_category(category_name, category_url,IDstart=0):
     books = []
     next_page = category_url
-
+    IDrecorrente = IDstart
     while next_page:
         res = requests.get(next_page)
         soup = BeautifulSoup(res.content, 'html.parser')
-
         book_elements = soup.select('article.product_pod')
 
         for book in book_elements:
@@ -40,6 +39,7 @@ def extract_books_from_category(category_name, category_url):
             img_url = urljoin(next_page, img_src)
 
             books.append({
+                "Id": IDrecorrente,
                 "title": title,
                 "price": price,
                 "availability": availability,
@@ -48,8 +48,8 @@ def extract_books_from_category(category_name, category_url):
                 "image_url": img_url,
                 "category": category_name
             })
-
+            IDrecorrente += 1
         next_btn = soup.select_one("li.next a")
         next_page = urljoin(next_page, next_btn['href']) if next_btn else None
 
-    return books
+    return books, IDrecorrente
