@@ -6,23 +6,21 @@ import pandas as pd
 from typing import List
 import os
 
-def export_csv():
-    categorias = get_all_categories()
-    all_books = []
-    IDrecorrente = 0
-    for cat in categorias:
-        books, IDrecorrente = extract_books_from_category(cat["name"], cat["url"], IDrecorrente)
-        all_books.extend(books)
-
-    df = pd.DataFrame(all_books)
-    df.to_csv("books_complete.csv", index=False, encoding='utf-8-sig')
-    return df
+CSV = "books_complete.csv"
 
 # Verifica se o CSV existe. Se não, faz scraping e cria o arquivo.
-if os.path.exists("books_complete.csv"):
-    books = pd.read_csv("books_complete.csv")
+if os.path.exists(CSV):
+    books = pd.read_csv(CSV)
 else:
-    books = export_csv()
+    categorias_list = get_all_categories()
+    all_books = []
+    IDrecorrente = 0
+    for cat in categorias_list:
+        livros, IDrecorrente = extract_books_from_category(cat["name"], cat["url"], IDrecorrente)
+        all_books.extend(livros)
+    df = pd.DataFrame(all_books)
+    df.to_csv(CSV, index=False, encoding='utf-8-sig')
+    books = df
 
 # Inicializa a API
 app = FastAPI(title="Books to Scrape API", version="1.0")
