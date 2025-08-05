@@ -56,19 +56,8 @@ def buscar_ID(Id: int):
 
 
 # GET /api/v1/books/search?title={title}&category={category}: Busca livros por título e/ou categoria
-#_____________________Modelo de resposta  _______________________________________
-# Modelo Pydantic
-class Livro(BaseModel):
-    title: str
-    price: str
-    availability: str
-    rating: str
-    category: str
-    url: str
-    image_url: str
-
 # Endpoint de busca com filtros
-@app.get("/api/v1/search", response_model=List[Livro])
+@app.get("/api/v1/search", response_model=List[Book])
 def search_books(
     title: Optional[str] = Query(None),
     category: Optional[str] = Query(None)
@@ -120,4 +109,4 @@ def health():
 
 #Ativar o App
 if __name__ == "__main__":
-    uvicorn.run("Main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("Main:app", host="127.0.0.1", port=8000, reload=True)
