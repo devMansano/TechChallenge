@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Query,HTTPException
 from Rota import book, categorias
 from Scrapping.Scrap import get_all_categories, extract_books_from_category
 from Modelo.Livro import Book
@@ -8,6 +8,7 @@ import os
 import uvicorn
 from pydantic import BaseModel
 from typing import Optional
+import time
 
 CSV = "books_complete.csv"
 
@@ -55,27 +56,37 @@ def buscar_ID(Id: int):
 
 
 # GET /api/v1/books/search?title={title}&category={category}: Busca livros por título e/ou categoria
-class BookSearchRequest(BaseModel):
-    # Id: Optional[int] = None
-    title: Optional[str] = None
-    category: Optional[str] = None
+#_____________________Modelo de resposta  _______________________________________
+# Modelo Pydantic
+class Livro(BaseModel):
+    title: str
+    price: str
+    availability: str
+    rating: str
+    category: str
+    url: str
+    image_url: str
 
-@app.get("/api/v1/search", summary="Buscar livros por título e/ou categoria via JSON")
-def buscar_livros_json(request: BookSearchRequest):
-    df = pd.read_csv(CSV)
+# Endpoint de busca com filtros
+@app.get("/api/v1/search", response_model=List[Livro])
+def search_books(
+    title: Optional[str] = Query(None),
+    category: Optional[str] = Query(None)
+):
+    filtered_books = books
 
-    # Filtra por título, se fornecido
-    if request.title:
-        df = df[df["title"].str.contains(request.title, case=False, na=False)]
+    if title:
+        filtered_books = filtered_books[
+            filtered_books['title'].str.contains(title, case=False, na=False)
+        ]
 
-    # Filtra por categoria, se fornecida
-    if request.category:
-        df = df[df["category"].str.contains(request.category, case=False, na=False)]
+    if category:
+        filtered_books = filtered_books[
+            filtered_books['category'].str.contains(category, case=False, na=False)
+        ]
 
-    # if df.empty:
-    #     return {"message": "Nenhum livro encontrado com os critérios fornecidos"}
-
-    return df.to_dict(orient="records")
+    return filtered_books.to_dict(orient="records")
+# -__________________________________________________________
 
 
 # • GET /api/v1/categories: Lista todas as categorias de livros disponíveis
@@ -89,7 +100,24 @@ def listar_categorias():
     return {"categorias": categorias}
 
 
+# • GET /api/v1/health: Verifica status da API e conectividade com os dados.
+@app.get("/api/v1/health")
+def health():
+    start = time.time()
+    try:
+        if books is None or books.empty:
+            raise HTTPException(status_code=500, detail="Dados não estão disponíveis")
+
+        response_time = time.time() - start
+        return {
+            "status": "ok",
+            "message": "API ativa e dados carregados",
+            "response_time_ms": int(response_time * 1000)
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao acessar dados: {str(e)}")
 
 
+#Ativar o App
 if __name__ == "__main__":
     uvicorn.run("Main:app", host="0.0.0.0", port=8000, reload=True)
