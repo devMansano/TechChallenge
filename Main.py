@@ -56,11 +56,7 @@ def buscar_ID(Id: int):
 
 
 # GET /api/v1/books/search?title={title}&category={category}: Busca livros por título e/ou categoria
-<<<<<<< HEAD
-=======
 #_____________________Modelo de resposta  _______________________________________
-
->>>>>>> 1fbe601cecb2d5cb48bee5db69cce0820d7d18b5
 # Endpoint de busca com filtros
 @app.get("/api/v1/search", response_model=List[Book])
 def search_books(
