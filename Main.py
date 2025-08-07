@@ -2,13 +2,12 @@ from fastapi import FastAPI,Query,HTTPException
 from Rota import book, categorias
 from Scrapping.Scrap import get_all_categories, extract_books_from_category
 from Modelo.Livro import Book
-import pandas as pd
-from typing import List
+from pydantic import BaseModel
+from typing import List, Optional
 import os
 import uvicorn
-from pydantic import BaseModel
-from typing import Optional
 import time
+import pandas as pd
 
 CSV = "books_complete.csv"
 
@@ -33,6 +32,7 @@ app = FastAPI(title="Books to Scrape API", version="1.0")
 app.include_router(categorias.router)
 app.include_router(book.router)
 
+#EndPoint inicial da API para recebimento de usuários
 @app.get("/")
 def root():
     return {"message": "Bem-vindo à API de Livros!"}
@@ -56,6 +56,11 @@ def buscar_ID(Id: int):
 
 
 # GET /api/v1/books/search?title={title}&category={category}: Busca livros por título e/ou categoria
+<<<<<<< HEAD
+=======
+#_____________________Modelo de resposta  _______________________________________
+
+>>>>>>> 1fbe601cecb2d5cb48bee5db69cce0820d7d18b5
 # Endpoint de busca com filtros
 @app.get("/api/v1/search", response_model=List[Book])
 def search_books(
@@ -78,9 +83,9 @@ def search_books(
 # -__________________________________________________________
 
 
-# • GET /api/v1/categories: Lista todas as categorias de livros disponíveis
+# GET /api/v1/categories: Lista todas as categorias de livros disponíveis
 @app.get("/api/v1/categories", summary="Listar categorias disponíveis no CSV")
-def listar_categorias():
+def listar_categorias(): 
     df = pd.read_csv(CSV)
     
     categorias = df["category"].dropna().unique().tolist()
@@ -89,24 +94,27 @@ def listar_categorias():
     return {"categorias": categorias}
 
 
-# • GET /api/v1/health: Verifica status da API e conectividade com os dados.
+# GET /api/v1/health: Verifica status da API e conectividade com os dados.
 @app.get("/api/v1/health")
 def health():
-    start = time.time()
+    start = time.time() # Marca o início da execução para calcular o tempo de resposta
     try:
-        if books is None or books.empty:
+        
+        if books is None or books.empty: # Verifica se o DataFrame 'books' está carregado e não está vazio
             raise HTTPException(status_code=500, detail="Dados não estão disponíveis")
 
-        response_time = time.time() - start
-        return {
+        response_time = time.time() - start # Calcula o tempo de resposta em milissegundos
+        
+        return { # Retorna o status da API com tempo de resposta
+            
             "status": "ok",
             "message": "API ativa e dados carregados",
             "response_time_ms": int(response_time * 1000)
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Erro ao acessar dados: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Erro ao acessar dados: {str(e)}") # Em caso de erro, retorna uma exceção HTTP com status 500
 
 
-#Ativar o App
+#Ativa a API 
 if __name__ == "__main__":
     uvicorn.run("Main:app", host="127.0.0.1", port=8000, reload=True)
