@@ -56,7 +56,6 @@ def buscar_ID(Id: int):
 
 
 # GET /api/v1/books/search?title={title}&category={category}: Busca livros por título e/ou categoria
-#_____________________Modelo de resposta  _______________________________________
 # Endpoint de busca com filtros
 @app.get("/api/v1/search", response_model=List[Book])
 def search_books(
@@ -114,3 +113,6 @@ def health():
 #Ativa a API 
 if __name__ == "__main__":
     uvicorn.run("Main:app", host="127.0.0.1", port=8000, reload=True)
+
+
+# Teste 123
