@@ -110,8 +110,6 @@ def health():
         raise HTTPException(status_code=500, detail=f"Erro ao acessar dados: {str(e)}") # Em caso de erro, retorna uma exceção HTTP com status 500
 
 
-#Ativa a API 
+# Inicia o servidor da API com uvicorn
 if __name__ == "__main__":
     uvicorn.run("Main:app", host="127.0.0.1", port=8000, reload=True)
-
-# Nova linha Teste
