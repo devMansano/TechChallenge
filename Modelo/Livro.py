@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class Book(BaseModel):
+class Book(BaseModel): # Modelo de dados para representar um livro extraído
     Id: int
     title: str
     price: str
