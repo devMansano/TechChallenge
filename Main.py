@@ -36,12 +36,10 @@ app = FastAPI(
     version="2.1.0",
     contact={
         "name": "Equipe de Desenvolvimento",
-        "email": "diogo@empresa.com; matheus@empresa.com; paulo@empresa.com",
+        "email": "diogo@teste.com; matheus@teste.com; paulo@teste.com",
         "url": "https://github.com/devMansano/TechChallenge/tree/main"
     }
 )
-
-#app = FastAPI(title="Books to Scrape API", version="1.0")
 
 # Inclui os endpoints das rotas
 app.include_router(categorias.router)
