@@ -26,13 +26,34 @@ else:
     books = df
 
 # Inicializa a API
-app = FastAPI(title="Books to Scrape API", version="1.0")
+# Documentação Swagger
+app = FastAPI(
+    title="API para Consulta de Livros no Site http://books.toscrape.com/",
+    description="""
+        API para consulta e atualização dos livros a partir de um site e criação 
+        de um banco de dados em .CSV.
+        Essa API foi desenvolvida para demonstrar o fluxo completo de integração
+        entre cientistas de dados, banco de dados e retorno via API.
+    """,
+    version="2.1.0",
+    contact={
+        "name": "Equipe de Desenvolvimento",
+        "email": "diogo@empresa.com; matheus@empresa.com; paulo@empresa.com",
+        "url": "https://github.com/devMansano/TechChallenge/tree/main"
+    },
+    license_info={  # Opcional
+        "name": "MIT License",
+        "url": "https://opensource.org/licenses/MIT",
+    }
+)
+
+#app = FastAPI(title="Books to Scrape API", version="1.0")
 
 # Inclui os endpoints das rotas
 app.include_router(categorias.router)
 app.include_router(book.router)
 
-#EndPoint inicial da API para recebimento de usuários
+# EndPoint inicial da API para recebimento de usuários
 @app.get("/")
 def root():
     return {"message": "Bem-vindo à API de Livros!"}
@@ -75,8 +96,6 @@ def search_books(
         ]
 
     return filtered_books.to_dict(orient="records")
-# -__________________________________________________________
-
 
 # GET /api/v1/categories: Lista todas as categorias de livros disponíveis
 @app.get("/api/v1/categories", summary="Listar categorias disponíveis no CSV")
