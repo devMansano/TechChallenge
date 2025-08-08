@@ -52,13 +52,12 @@ def root():
 
 
 # GET /api/v1/books: Lista todos os livros disponíveis na base de dados.
-@app.get("/api/v1/books", response_model=List[Book])
+@app.get("/api/v1/books", summary="Livros", description="Exibe todos os Livros do Site.", response_model=List[Book])
 def get_livros():
     return books.to_dict(orient="records")
 
-
 # GET /api/v1/books/{id}: Retorna detalhes completos de um livro específico pelo ID.
-@app.get("/api/v1/books/{Id}", summary="Obter detalhes de um livro por ID")
+@app.get("/api/v1/books/{Id}", summary="Busca por ID", description="Retorna detalhes completos de um livro específico pelo ID.")
 def buscar_ID(Id: int):
     livro = books[books["Id"] == Id]
     
@@ -67,10 +66,9 @@ def buscar_ID(Id: int):
     
     return livro.iloc[0].to_dict()
 
-
 # GET /api/v1/books/search?title={title}&category={category}: Busca livros por título e/ou categoria
 # Endpoint de busca com filtros
-@app.get("/api/v1/search", response_model=List[Book])
+@app.get("/api/v1/search", summary="Busca Livro e/ou Categoria", description="Realiza uma busca no site pelo nome do livro e/ou Categoria. É possível busar de forma independente ou utilizar ambas as informações.", response_model=List[Book])
 def search_books(
     title: Optional[str] = Query(None),
     category: Optional[str] = Query(None)
@@ -90,7 +88,7 @@ def search_books(
     return filtered_books.to_dict(orient="records")
 
 # GET /api/v1/categories: Lista todas as categorias de livros disponíveis
-@app.get("/api/v1/categories", summary="Listar categorias disponíveis no CSV")
+@app.get("/api/v1/categories", summary="Categorias", description="Retorna todas as categorias de livros disponíveis no site.")
 def listar_categorias(): 
     df = pd.read_csv(CSV)
     
@@ -101,7 +99,7 @@ def listar_categorias():
 
 
 # GET /api/v1/health: Verifica status da API e conectividade com os dados.
-@app.get("/api/v1/health")
+@app.get("/api/v1/health", summary="STATUS da API", description="Retorna o Status atual da conectividade com os dados do .CSV.")
 def health():
     start = time.time() # Marca o início da execução para calcular o tempo de resposta
     try:
@@ -119,7 +117,6 @@ def health():
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erro ao acessar dados: {str(e)}") # Em caso de erro, retorna uma exceção HTTP com status 500
-
 
 # Inicia o servidor da API com uvicorn
 if __name__ == "__main__":
