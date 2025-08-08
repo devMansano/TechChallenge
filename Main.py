@@ -50,14 +50,13 @@ app.include_router(book.router)
 def root():
     return {"message": "Bem-vindo à API de Livros!"}
 
-
 # GET /api/v1/books: Lista todos os livros disponíveis na base de dados.
 @app.get("/api/v1/books", summary="Livros", description="Exibe todos os Livros do Site.", response_model=List[Book])
 def get_livros():
     return books.to_dict(orient="records")
 
-# GET /api/v1/books/{id}: Retorna detalhes completos de um livro específico pelo ID.
-@app.get("/api/v1/books/{Id}", summary="Busca por ID", description="Retorna detalhes completos de um livro específico pelo ID.")
+# GET /api/v1/id/{id}: Retorna detalhes completos de um livro específico pelo ID.
+@app.get("/api/v1/id/{Id}", summary="Busca por ID", description="Retorna detalhes completos de um livro específico pelo ID.")
 def buscar_ID(Id: int):
     livro = books[books["Id"] == Id]
     
@@ -99,7 +98,7 @@ def listar_categorias():
 
 
 # GET /api/v1/health: Verifica status da API e conectividade com os dados.
-@app.get("/api/v1/health", summary="STATUS da API", description="Retorna o Status atual da conectividade com os dados do .CSV.")
+@app.get("/api/v1/health", summary="Conexão", description="Retorna o Status atual da conexão com a base de dados.")
 def health():
     start = time.time() # Marca o início da execução para calcular o tempo de resposta
     try:
