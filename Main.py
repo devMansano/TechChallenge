@@ -30,20 +30,14 @@ else:
 app = FastAPI(
     title="API para Consulta de Livros no Site http://books.toscrape.com/",
     description="""
-        API para consulta e atualização dos livros a partir de um site e criação 
-        de um banco de dados em .CSV.
-        Essa API foi desenvolvida para demonstrar o fluxo completo de integração
-        entre cientistas de dados, banco de dados e retorno via API.
+        API para consulta e atualização dos livros a partir de um site e criação de um banco de dados em .CSV.
+        Essa API foi desenvolvida para demonstrar o fluxo completo de integração entre cientistas de dados, banco de dados e retorno via API.
     """,
     version="2.1.0",
     contact={
         "name": "Equipe de Desenvolvimento",
         "email": "diogo@empresa.com; matheus@empresa.com; paulo@empresa.com",
         "url": "https://github.com/devMansano/TechChallenge/tree/main"
-    },
-    license_info={  # Opcional
-        "name": "MIT License",
-        "url": "https://opensource.org/licenses/MIT",
     }
 )
 
