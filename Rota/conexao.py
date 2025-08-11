@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 import time
-from Scrapping.gera_base import banco_dados
+from Dados.gera_base import banco_dados
 
 listar = banco_dados()  # Retorna dados dos livros do BD
 

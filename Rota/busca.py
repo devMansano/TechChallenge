@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Query
 from typing import Optional
-from Scrapping.gera_base import banco_dados
+from Dados.gera_base import banco_dados
 from typing import List, Optional
 from Modelo.Livro import Book
-from Scrapping.gera_base import banco_dados
+from Dados.gera_base import banco_dados
 
 listar = banco_dados()  # Retorna dados dos livros do BD
 

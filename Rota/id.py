@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from Scrapping.gera_base import banco_dados
+from Dados.gera_base import banco_dados
 
 router = APIRouter(prefix="/api/v1/id", tags=["Busca por Identificador"])
 

@@ -1,7 +1,8 @@
+
 from fastapi import FastAPI
 from Rota import book, categorias, bem_vindo, conexao, busca, id
 import uvicorn
-from Scrapping.gera_base import banco_dados
+from Dados.gera_base import banco_dados
 
 #banco_dados()
 # Inicializa a API

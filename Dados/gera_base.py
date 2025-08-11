@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from Scrapping.Scrap import get_all_categories, extract_books_from_category
+from Dados.Scrap import get_all_categories, extract_books_from_category
 
 CSV = "books_complete.csv"
 
@@ -19,16 +19,3 @@ def banco_dados():
         df.to_csv(CSV, index=False, encoding='utf-8-sig')
         books = df
     return books
-
-"""
-def export_csv():
-    categorias = get_all_categories()
-    all_books = []
-
-    for cat in categorias:
-        all_books.extend(extract_books_from_category(cat["name"], cat["url"]))
-
-    df = pd.DataFrame(all_books)
-    df.to_csv(CSV, index=False, encoding='utf-8-sig')
-    return {"message": f"Exportado com sucesso. Total: {len(df)} livros"}
-"""

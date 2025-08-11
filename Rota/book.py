@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 from typing import Optional
-from Scrapping.Scrap import get_all_categories, extract_books_from_category
-from Scrapping.gera_base import banco_dados
+from Dados.Scrap import get_all_categories, extract_books_from_category
+from Dados.gera_base import banco_dados
 from pydantic import BaseModel
 from typing import List, Optional
 from Modelo.Livro import Book
