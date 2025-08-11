@@ -3,16 +3,16 @@
 API desenvolvida com FastAPI para consultar e exportar informações sobre livros disponíveis no site Books to Scrape.
 O projeto realiza web scraping para coletar dados, armazena-os em um arquivo .csv e disponibiliza-os via endpoints REST.
 
-⚙️ Requisitos
+⚙️ Requisitos e Bibliotecas necessárias
 Python 3.14
-
-⚙️ Ferramentas/Bibliotecas utilizadas
 beautifulsoup4
 pandas
 FastApi
 uvicorn
 pydantic
 requests
+
+
 
 Caso queira baixar pelo prompt de comando (Linux) utilizar esse comando
 ⚙️ Instalação e Execução pelo github
