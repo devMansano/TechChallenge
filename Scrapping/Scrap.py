@@ -1,9 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-
+# Site para a extração
 BASE_URL = 'http://books.toscrape.com/'
 
+# Realiza a extração de todas as categorias 
 def get_all_categories():
     res = requests.get(BASE_URL)
     soup = BeautifulSoup(res.text, 'html.parser')
@@ -18,7 +19,7 @@ def get_all_categories():
     
     return categories
 
-
+# Realiza a extração dos livros a partir de cada categoria
 def extract_books_from_category(category_name, category_url,IDstart=0):
     books = []
     next_page = category_url

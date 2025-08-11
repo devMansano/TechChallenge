@@ -1,11 +1,10 @@
-from fastapi import FastAPI,Query,HTTPException
-from Rota import book, categorias, bem_vindo
+from fastapi import FastAPI
+from Rota import book, categorias, bem_vindo, conexao
 from Modelo.Livro import Book
-from pydantic import BaseModel
-from typing import List, Optional
 import uvicorn
-import time
+from Scrapping.gera_base import banco_dados
 
+#banco_dados()
 # Inicializa a API
 # Documentação Swagger
 app = FastAPI(
@@ -26,12 +25,10 @@ app = FastAPI(
 app.include_router(categorias.router)
 app.include_router(book.router)
 app.include_router(bem_vindo.router)
+app.include_router(conexao.router)
 
 """
-# GET /api/v1/books: Lista todos os livros disponíveis na base de dados.
-@app.get("/api/v1/books", summary="Livros", description="Exibe todos os Livros do Site.", response_model=List[Book])
-def get_livros():
-    return books.to_dict(orient="records")
+
 
 # GET /api/v1/books/search?title={title}&category={category}: Busca livros por título e/ou categoria
 # Endpoint de busca com filtros
@@ -65,25 +62,6 @@ def listar_categorias():
     return {"categorias": categorias}
 
 
-# GET /api/v1/health: Verifica status da API e conectividade com os dados.
-@app.get("/api/v1/health", summary="Conexão", description="Retorna o Status atual da conexão com a base de dados.")
-def health():
-    start = time.time() # Marca o início da execução para calcular o tempo de resposta
-    try:
-        
-        if books is None or books.empty: # Verifica se o DataFrame 'books' está carregado e não está vazio
-            raise HTTPException(status_code=500, detail="Dados não estão disponíveis")
-
-        response_time = time.time() - start # Calcula o tempo de resposta em milissegundos
-        
-        return { # Retorna o status da API com tempo de resposta
-            
-            "status": "ok",
-            "message": "API ativa e dados carregados",
-            "response_time_ms": int(response_time * 1000)
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Erro ao acessar dados: {str(e)}") # Em caso de erro, retorna uma exceção HTTP com status 500
 """
         
 # Inicia o servidor da API com uvicorn
