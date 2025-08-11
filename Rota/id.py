@@ -1,12 +1,14 @@
-from fastapi import APIRouter, Query
+from fastapi import APIRouter
 from Scrapping.gera_base import banco_dados
 
-router = APIRouter(prefix="/api/v1/id/{Id}", tags=["Bem-Vindo"])
+router = APIRouter(prefix="/api/v1/id", tags=["Busca por Identificador"])
+
+df = banco_dados()  # agora df é um DataFrame
 
 # GET /api/v1/id/{id}: Retorna detalhes completos de um livro específico pelo ID.
-@router.get("/", summary="Busca por ID", description="Retorna detalhes completos de um livro específico pelo ID.")
+@router.get("/{Id}", summary="Busca por ID", description="Retorna detalhes completos de um livro específico pelo ID.")
 def buscar_ID(Id: int):
-    livro = banco_dados[banco_dados["Id"] == Id]
+    livro = df[df["Id"] == Id]
     
     if livro.empty:
         return {"message": "Livro não encontrado"}

@@ -5,4 +5,4 @@ router = APIRouter(prefix="", tags=["Bem-vindo"])
 # EndPoint inicial da API para recebimento de usuários
 @router.get("/", summary="Bem-vindo")
 def root():
-    return {"message": "Bem-vindo à API de Livros!"}
+    return {"message": "Bem-vindo a API de Livros!"}
