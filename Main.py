@@ -27,21 +27,6 @@ app.include_router(id.router)
 app.include_router(categorias.router)
 app.include_router(busca.router)
 app.include_router(conexao.router)
-
-"""
-
-# GET /api/v1/categories: Lista todas as categorias de livros disponíveis
-@app.get("/api/v1/categories", summary="Categorias", description="Retorna todas as categorias de livros disponíveis no site.")
-def listar_categorias(): 
-    df = pd.read_csv(CSV)
-    
-    categorias = df["category"].dropna().unique().tolist()
-    categorias.sort()
-
-    return {"categorias": categorias}
-
-
-"""
         
 # Inicia o servidor da API com uvicorn
 if __name__ == "__main__":
