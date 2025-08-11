@@ -7,7 +7,7 @@ from Dados.gera_base import banco_dados
 
 listar = banco_dados()  # Retorna dados dos livros do BD
 
-router = APIRouter(prefix="/api/v1/busca", tags=["Busca Título/Categoria"])
+router = APIRouter(prefix="/api/v1/busca", tags=["Buscar por Título ou Categoria"])
 
 # GET /api/v1/books/search?title={title}&category={category}: Busca livros por título e/ou categoria
 # Endpoint de busca com filtros
@@ -18,14 +18,13 @@ def busca_livros(
 ):
     livros_filtrados = listar
 
-    if titulo:
-        livros_filtrados = livros_filtrados[
-            livros_filtrados['title'].str.contains(titulo, case=False, na=False)
-        ]
-
-    if categoria:
-        livros_filtrados = livros_filtrados[
-            livros_filtrados['category'].str.contains(categoria, case=False, na=False)
-        ]
+    if titulo or categoria:
+        mascara = False
+        if titulo:
+            mascara |= livros_filtrados['title'].str.contains(titulo, case=False, na=False)
+        if categoria:
+            mascara |= livros_filtrados['category'].str.contains(categoria, case=False, na=False)
+        livros_filtrados = livros_filtrados[mascara]
 
     return livros_filtrados.to_dict(orient="records")
+

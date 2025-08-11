@@ -1,6 +1,6 @@
 
 from fastapi import FastAPI
-from Rota import book, categorias, bem_vindo, conexao, busca, id
+from Rota import bem_vindo, conexao, id, listar_categorias, listar_livros, titulo_categoria
 import uvicorn
 from Dados.gera_base import banco_dados
 
@@ -23,10 +23,10 @@ app = FastAPI(
 
 # Inclui os endpoints das rotas
 app.include_router(bem_vindo.router)
-app.include_router(book.router)
+app.include_router(listar_livros.router)
 app.include_router(id.router)
-app.include_router(categorias.router)
-app.include_router(busca.router)
+app.include_router(listar_categorias.router)
+app.include_router(titulo_categoria.router)
 app.include_router(conexao.router)
         
 # Inicia o servidor da API com uvicorn

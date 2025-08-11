@@ -1,10 +1,15 @@
 import os
 import pandas as pd
-from Dados.Scrap import get_all_categories, extract_books_from_category
+from Dados.Extracao import get_all_categories, extract_books_from_category
 
-CSV = "books_complete.csv"
+# Obter o diretório atual do módulo
+dir_atual = os.path.dirname(__file__)
 
-# Verifica se o CSV existe. Se não, faz scraping e cria o arquivo.
+# Definir o caminho do arquivo CSV
+CSV = os.path.join(dir_atual, "base_livros.csv")
+
+
+# Verifica se o CSV existe. Se não, faz Extracaoing e cria o arquivo.
 def banco_dados():
     if os.path.exists(CSV):
         books = pd.read_csv(CSV)

@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from Dados.gera_base import banco_dados
 
-router = APIRouter(prefix="/api/v1/id", tags=["Busca por Identificador"])
+router = APIRouter(prefix="/api/v1/id", tags=["Buscar por Identificador"])
 
 df = banco_dados()  # agora df é um DataFrame
 
