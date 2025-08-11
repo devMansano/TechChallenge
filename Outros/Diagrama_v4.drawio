@@ -22,7 +22,7 @@
         <mxCell id="Ir2DKbdVODXzLXh9O0Dr-21" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Private_Endpoint.svg;" vertex="1" parent="Ir2DKbdVODXzLXh9O0Dr-31">
           <mxGeometry x="2.5" width="72" height="66" as="geometry" />
         </mxCell>
-        <mxCell id="Ir2DKbdVODXzLXh9O0Dr-29" value="Detalhes do livro" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="Ir2DKbdVODXzLXh9O0Dr-31">
+        <mxCell id="Ir2DKbdVODXzLXh9O0Dr-29" value="Buscar por ID" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="Ir2DKbdVODXzLXh9O0Dr-31">
           <mxGeometry y="80" width="90" height="44" as="geometry" />
         </mxCell>
         <mxCell id="Ir2DKbdVODXzLXh9O0Dr-33" value="" style="group" vertex="1" connectable="0" parent="1">

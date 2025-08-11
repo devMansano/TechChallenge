@@ -98,8 +98,10 @@ TechChallenge/
 ¦   
 ¦   
 +---Outros                      # Arquivos variados
-¦       Diagrama_tech_fiap.drawio
-¦       Pos_tech - Tech Challenge - Fase 1 - Machine Learning Engineering.pdf
+¦       Diagrama.drawio         # Diagrama em Bloco para ser utilizado no site: https://app.diagrams.net/
+¦       Diagrama.drawio         # Diagrama em Bloco para ser utilizado no site: https://app.diagrams.net/
+¦       Diagrama.jpeg           # Diagrama em Imagem
+¦       Pos_tech - Tech Challenge - Fase 1 - Machine Learning Engineering.pdf           # Arquivo de apoio do pedido
 ¦       
 +---Rota                        # Endpoints da API organizados em módulos
 ¦   ¦   bem_vindo.py            # Rota raiz com mensagem de boas-vindas
