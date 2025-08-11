@@ -30,48 +30,49 @@ cd TechChallenge
 
 
 - **🚀 Funcionalidades**
-- `📖 Listar livros por categoria ou todos os disponíveis.
+- 📖 Listar livros por categoria ou todos os disponíveis.
 
-- `🔍 Buscar livros por título e/ou categoria.
+- 🔍 Buscar livros por título e/ou categoria.
 
-- `🏷️ Listar categorias disponíveis no site.
+- 🏷️ Listar categorias disponíveis no site.
 
-- `🆔 Consultar livro por ID.
+- 🆔 Consultar livro por ID.
 
-- `💾 Exportar todos os livros para CSV.
+- 💾 Exportar todos os livros para CSV.
 
-- `🩺 Verificar status de saúde da API.
-
--**🛠️ Tecnologias Utilizadas**
-FastAPI — Framework web rápido e moderno.
-
-Requests — Requisições HTTP.
-
-BeautifulSoup4 — Extração de dados HTML.
-
-Pandas — Manipulação e exportação de dados.
+- 🩺 Verificar status de saúde da API.
 
 
--**📌 Endpoints Principais**
+**🛠️ Tecnologias Utilizadas**
+- FastAPI — Framework web rápido e moderno.
+
+- Requests — Requisições HTTP.
+
+- BeautifulSoup4 — Extração de dados HTML.
+
+- Pandas — Manipulação e exportação de dados.
+
+
+**📌 Endpoints Principais**
 Método	Endpoint	Descrição
 
-- `GET	/	--> Mensagem de boas-vindas
+- GET	/	--> Mensagem de boas-vindas
 
-- `GET	/categories	--> Lista todas as categorias
+- GET	/categories	--> Lista todas as categorias
 
-- `GET	/books -->	Lista todos os livros (ou filtra por categoria)
+- GET	/books -->	Lista todos os livros (ou filtra por categoria)
 
-- `GET	/api/v1/id/{Id} -->	Busca livro por ID
+- GET	/api/v1/id/{Id} -->	Busca livro por ID
 
-- `GET	/api/v1/search?title=&category -->	Busca por título e/ou categoria
+- GET	/api/v1/search?title=&category -->	Busca por título e/ou categoria
 
-- `GET	/api/v1/health -->	Verifica status da API
-
-
--**📤 Exportar para CSV**
-- `A função export_csv() em Rota/Book.py coleta todos os livros do site e exporta para o arquivo books_complete.csv:
+- GET	/api/v1/health -->	Verifica status da API
 
 
--**📄 Licença**
-- `Este projeto é apenas para fins educacionais.
+**📤 Exportar para CSV**
+- A função export_csv() em Rota/Book.py coleta todos os livros do site e exporta para o arquivo books_complete.csv:
+
+
+**📄 Licença**
+- Este projeto é apenas para fins educacionais.
 O site Books to Scrape é destinado a práticas de web scraping e não contém dados reais.
