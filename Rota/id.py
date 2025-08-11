@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Query
+from fastapi import APIRouter
 from Scrapping.gera_base import banco_dados
 
-router = APIRouter(prefix="/api/v1/id/{Id}", tags=["Bem-Vindo"])
+router = APIRouter(prefix="/api/v1/id/{Id}", tags=["Busca por Identificador"])
 
 # GET /api/v1/id/{id}: Retorna detalhes completos de um livro específico pelo ID.
 @router.get("/", summary="Busca por ID", description="Retorna detalhes completos de um livro específico pelo ID.")

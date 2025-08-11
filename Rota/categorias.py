@@ -1,9 +1,16 @@
 from fastapi import APIRouter
 from Scrapping.Scrap import get_all_categories
+import pandas as pd
+from Scrapping.gera_base import banco_dados
 
-router = APIRouter(prefix="/categories", tags=["Categorias"])
+listar = banco_dados()  # Retorna dados dos livros do BD
+router = APIRouter(prefix="/api/v1/categorias", tags=["Categorias"])
 
-@router.get("/", summary="Listar todas as categorias")
-def list_categories():
-    categories = get_all_categories()
-    return {"categories": categories}
+# GET /api/v1/categories: Lista todas as categorias de livros disponíveis
+@router.get("/", summary="Categorias", description="Retorna todas as categorias de livros disponíveis no site.")
+def listar_categorias(): 
+    df = listar
+    categorias = df["category"].dropna().unique().tolist()
+    categorias.sort()
+
+    return {"categorias": categorias}
