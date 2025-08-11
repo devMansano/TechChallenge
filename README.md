@@ -1,7 +1,24 @@
 # TechChallenge
 
 API desenvolvida com FastAPI para consultar e exportar informações sobre livros disponíveis no site Books to Scrape.
-O projeto faz web scraping para coletar dados, armazena-os em um arquivo .csv e disponibiliza-os via endpoints REST.
+O projeto realiza web scraping para coletar dados, armazena-os em um arquivo .csv e disponibiliza-os via endpoints REST.
+
+⚙️ Requisitos
+Python 3.14
+
+⚙️ Ferramentas/Bibliotecas utilizadas
+beautifulsoup4
+pandas
+FastApi
+uvicorn
+pydantic
+requests
+
+Caso queira baixar pelo prompt de comando (Linux) utilizar esse comando
+⚙️ Instalação e Execução pelo github
+git clone https://github.com/devMansano/TechChallenge.git
+cd TechChallenge
+
 
 🚀 Funcionalidades
 📖 Listar livros por categoria ou todos os disponíveis.
@@ -16,16 +33,6 @@ FastAPI — Framework web rápido e moderno.
 Requests — Requisições HTTP.
 BeautifulSoup4 — Extração de dados HTML.
 Pandas — Manipulação e exportação de dados.
-
-
-
-⚙️ Instalação e Execução pelo github
-git clone https://github.com/devMansano/TechChallenge.git
-cd TechChallenge
-
-
-⚙️ Instalar dependências
-pip install -r requirements.txt
 
 
 📌 Endpoints Principais
