@@ -1,0 +1,9 @@
+/livros/api/v1/livros
+
+/api/v1/id/234
+
+/api/v1/categorias/
+
+/api/v1/busca/?titulo=Starlark&categoria=Crime
+
+/api/v1/conexao/
