@@ -106,7 +106,7 @@ TechChallenge/
 ¦       Diagrama.jpeg           # Diagrama em Imagem
 ¦       Pos_tech - Tech Challenge - Fase 1 - Machine Learning Engineering.pdf           # Arquivo de apoio do pedido
 ¦   +------ Exemplo
-¦   ¦   Imagens de apoio e txt  # Rota raiz com mensagem de boas-vindas
+¦   ¦   Imagens de apoio e txt  # Imagens de exemplo de usos de rotas, que foram ilustradas no readme (vide abaixo)
      
 +---Rota                        # Endpoints da API organizados em módulos
 ¦   ¦   bem_vindo.py            # Rota raiz com mensagem de boas-vindas
