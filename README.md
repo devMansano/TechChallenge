@@ -98,8 +98,7 @@ TechChallenge/
 ¦   
 ¦   
 +---Outros                      # Arquivos variados
-¦       Diagrama.drawio         # Diagrama em Bloco para ser utilizado no site: https://app.diagrams.net/
-¦       Diagrama.drawio         # Diagrama em Bloco para ser utilizado no site: https://app.diagrams.net/
+¦       Diagrama.drawio         # Diagrama em Bloco para ser utilizado no site: https://www.drawio.com/
 ¦       Diagrama.jpeg           # Diagrama em Imagem
 ¦       Pos_tech - Tech Challenge - Fase 1 - Machine Learning Engineering.pdf           # Arquivo de apoio do pedido
 ¦       
