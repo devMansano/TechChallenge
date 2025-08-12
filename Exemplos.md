@@ -25,7 +25,7 @@ Exemplos de retorno para cada rota da API.
 
 ---
 
-## 4️⃣ Buscar livro por título e categoria
+## 4️⃣ Buscar livro por título e/ou categoria
 **Rota:** `/api/v1/busca/?titulo=Starlark&categoria=Crime`  
 **Exemplo de saída:**  
 ![Exemplo - Busca com Filtros](Exemplos/busca_titulo_categoria.png)
