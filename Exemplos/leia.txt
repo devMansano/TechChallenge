@@ -6,6 +6,10 @@
 
 /api/v1/categorias/
 
+/api/v1/busca/?titulo=Starlark
+
+/api/v1/busca/?categoria=Travel
+
 /api/v1/busca/?titulo=Starlark&categoria=Crime
 
 /api/v1/conexao/

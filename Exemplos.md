@@ -24,11 +24,13 @@
 ---
 
 ## 4️⃣ Buscar livro por título e/ou categoria
-**Rota:** `/api/v1/busca/?titulo=Starlark&categoria=Crime`  
+**Rota:** `/api/v1/busca/?titulo=Starlark`  
 **Exemplo de saída (Titulo):**  
 ![Exemplo - Busca com Filtros](Exemplos/busca_titulo.png)  
+**Rota:** `/api/v1/busca/?categoria=Travel`  
 **Exemplo de saída (Categoria):**  
 ![Exemplo - Busca com Filtros](Exemplos/busca_categoria.png)  
+**Rota:** `/api/v1/busca/?titulo=Starlark&categoria=Crime`  
 **Exemplo de saída (Titulo e/ou Categoria):**  
 ![Exemplo - Busca com Filtros](Exemplos/busca_titulo_categoria.png)
 
