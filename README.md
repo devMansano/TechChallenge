@@ -98,16 +98,16 @@ TechChallenge/
 ¦   ¦   books_complete.csv      # Banco de dados local gerado via scraping
 ¦   ¦   Extracao.py             # Funções para extrair categorias e livros do site
 ¦   ¦   gera_base.py            # Criação e leitura do CSV com os dados coletados
-¦   
-+---Modelo                      # Modelos Pydantic para validação de dados
 ¦   ¦   Livro.py                # Definição do modelo Book
-¦   
-¦   
-+---Outros                      # Arquivos variados
+¦    
++---Apoio                       # Arquivos variados
+¦   +------ Outros 
 ¦       Diagrama.drawio         # Diagrama em Bloco para ser utilizado no site: https://www.drawio.com/
 ¦       Diagrama.jpeg           # Diagrama em Imagem
 ¦       Pos_tech - Tech Challenge - Fase 1 - Machine Learning Engineering.pdf           # Arquivo de apoio do pedido
-¦       
+¦   +------ Exemplo
+¦   ¦   Imagens de apoio e txt  # Rota raiz com mensagem de boas-vindas
+     
 +---Rota                        # Endpoints da API organizados em módulos
 ¦   ¦   bem_vindo.py            # Rota raiz com mensagem de boas-vindas
 ¦   ¦   conexao.py              # Endpoint para checar saúde da API / status da base
