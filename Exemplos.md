@@ -25,7 +25,11 @@
 
 ## 4️⃣ Buscar livro por título e/ou categoria
 **Rota:** `/api/v1/busca/?titulo=Starlark&categoria=Crime`  
-**Exemplo de saída:**  
+**Exemplo de saída (Titulo):**  
+![Exemplo - Busca com Filtros](Exemplos/busca_titulo.png)  
+**Exemplo de saída (Categoria):**  
+![Exemplo - Busca com Filtros](Exemplos/busca_categoria.png)  
+**Exemplo de saída (Titulo e/ou Categoria):**  
 ![Exemplo - Busca com Filtros](Exemplos/busca_titulo_categoria.png)
 
 ---
