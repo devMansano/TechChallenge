@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 # Criação de classe para validação do tipo de dados
-class Book(BaseModel):
+class Tipagem(BaseModel):
     Id: int             # ID do livro
     title: str          # Título do livro
     price: str          # Preço

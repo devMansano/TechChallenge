@@ -1,9 +1,7 @@
 from fastapi import FastAPI
 from Rota import bem_vindo, conexao, id, listar_categorias, listar_livros, titulo_categoria
 import uvicorn
-from Dados.gera_base import banco_dados
 
-#banco_dados()
 # Inicializa a API
 # Documentação Swagger
 app = FastAPI(
