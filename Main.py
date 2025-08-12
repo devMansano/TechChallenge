@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI
 from Rota import bem_vindo, conexao, id, listar_categorias, listar_livros, titulo_categoria
 import uvicorn
