@@ -1,6 +1,4 @@
-# API Endpoints com imagens ilustrativas.
-
-Exemplos de retorno para cada rota da API. 
+# Exemplos de retorno para cada rota da API
 
 ---
 
