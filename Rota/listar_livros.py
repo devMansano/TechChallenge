@@ -1,9 +1,6 @@
-from fastapi import APIRouter, Query
-from typing import Optional
-from Dados.Extracao import get_all_categories, extract_books_from_category
+from fastapi import APIRouter
 from Dados.gera_base import banco_dados
-from pydantic import BaseModel
-from typing import List, Optional
+from typing import List 
 from Modelo.Livro import Book
 
 listar = banco_dados()  # Retorna dados dos livros do BD

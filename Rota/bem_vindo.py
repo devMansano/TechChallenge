@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Query
+from fastapi import APIRouter
 
 router = APIRouter(prefix="", tags=["Bem-vindo"])
 

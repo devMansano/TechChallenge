@@ -45,18 +45,18 @@ O objetivo principal é demonstrar o fluxo completo de integração entre coleta
 
 ## 📥 Instalação
 
-### Instalar o Python
+### 1.Instalar o Python
 
-### Instalar o VSCode
+### 2.Instalar o VSCode (ambiente sugerido)
 
-### Instalar o Git (opcional)
+### 3.Instalar o Git (opcional)
 
 
-## 📦 Instruções de Configuração
+## 📦 Instruções de Configuração e Execução
 
-0. No VS Code
+0. **Abre o VS Code**
 
-1. **Obteção do projeto**    
+1. **Obtenção do projeto**    
     **a.Clone o repositório**
     ```bash
     git clone https://github.com/devMansano/TechChallenge.git
@@ -73,9 +73,15 @@ O objetivo principal é demonstrar o fluxo completo de integração entre coleta
     source venv/bin/activate
 
 3. **Instale as dependências**
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
+4. **Execute o codigo Main.py**
+    python Main.py
 
+5. **No acesso Local, utilize: http://127.0.0.1:8000/ ou http://localhost:8000/ para acessar a API**
+
+6. **Utilize os pontos de acesso após o localhost**
+    
 
 ## 📁 Estrutura do Projeto
 
@@ -111,7 +117,7 @@ TechChallenge/
 ¦   ¦   titulo_categoria.py     # Busca de livros por título e/ou categoria
 ```
 
-## 📌 Endpoints **
+## 📌 Pontos de Acesso
 Método	Endpoint	Descrição
 
 - GET	/	--> Mensagem de boas-vindas
@@ -165,13 +171,10 @@ Método	Endpoint	Descrição
 ![Exemplo - Conexão](Exemplos/conexao.png)
 
 
-## 📤 Exportar para CSV**
+## 📤 Exportar para CSV
 - O arquivo .CSV gerado é armazenado dentro da pasta Dados com nome base_livros.csv.
 
-Repositório GitHub:
-https://github.com/devMansano/TechChallenge
 
-
-## 📄 Licença**
+## 📄 Licença
 - Este projeto é apenas para fins educacionais.
 O site Books to Scrape é destinado a práticas de web scraping e não contém dados reais.

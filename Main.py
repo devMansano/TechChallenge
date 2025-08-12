@@ -15,7 +15,7 @@ app = FastAPI(
     version="2.1.0",
     contact={
         "name": "Equipe de Desenvolvimento",
-        "email": "diogo@teste.com; matheus@teste.com; paullorics@gmail.com",
+        "email": "diogo@teste.com; matheus@teste.com; paulo@teste.com",
         "url": "https://github.com/devMansano/TechChallenge/tree/main"
     }
 )

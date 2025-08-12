@@ -1,6 +1,4 @@
 from fastapi import APIRouter
-from Dados.Extracao import get_all_categories
-import pandas as pd
 from Dados.gera_base import banco_dados
 
 listar = banco_dados()  # Retorna dados dos livros do BD
